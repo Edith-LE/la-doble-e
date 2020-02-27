@@ -7,10 +7,8 @@ function Login() {
     <MyContext.Consumer>
       {context => (
         
-          <form submit={context.handleLoginSubmit} title="Login">
-            
-            
-                
+          <form onSubmit={context.handleLoginSubmit} title="Login">
+
                 <input
                   onChange={context.handleLoginInput}
                   placeholder="example@email.com"
@@ -18,9 +16,7 @@ function Login() {
                   type="email"
                   value={context.state.formLogin.email}
                 />
-             
-              
-                
+                              
                 <input
                   onChange={context.handleLoginInput}
                   placeholder="Password"
@@ -28,6 +24,7 @@ function Login() {
                   type="password"
                   value={context.state.formLogin.password}
                 />
+                 <button> Entrar </button>
               
           </form>
        

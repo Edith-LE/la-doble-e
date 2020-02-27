@@ -8,11 +8,11 @@ function Signup() {
     <MyContext.Consumer>
       {context => (
         
-          <form submit={context.handleSignupSubmit} title="Signup">
+          <form onSubmit={context.handleSignupSubmit} title="Signup">
             
              
                 <input
-                  placeholder="Name"
+                  placeholder="Nombre"
                   name="name"
                   type="text"
                   value={context.state.formSignup.name}

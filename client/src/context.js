@@ -16,7 +16,7 @@ class MyProvider extends Component{
             password:''
         },
         isLoggedIn: false,
-        msg: 'Landing page'
+        loggedUser: null
     }
 
 
@@ -83,7 +83,14 @@ class MyProvider extends Component{
           })
           .catch(() => {
             alert('Something went wrong')
-          })    
+          })
+    }
+
+    logout = async () => {
+        this.setState({ isLoggedIn:false })
+        await AUTH_SERVICE.logout()
+        this.props.history.push("/")
+
     }
 
 
@@ -93,7 +100,8 @@ class MyProvider extends Component{
             handleSignupInput,
             handleSignupSubmit,
             handleLoginInput,
-            handleLoginSubmit         
+            handleLoginSubmit,
+            logout         
         }= this
         return(
             <MyContext.Provider
@@ -102,7 +110,8 @@ class MyProvider extends Component{
                 handleSignupSubmit,
                 handleSignupInput,
                 handleLoginInput,
-                handleLoginSubmit 
+                handleLoginSubmit,
+                logout 
             }}
             >
             {this.props.children}
