@@ -2,10 +2,20 @@ const express = require ('express');
 const router = express.Router()
 const Products = require('../models/Products')
 const {
-  getProducts} = require('../controllers/productControllers')
+  getProducts,
+  productDetail,
+  cakes,
+  cupcakes,
+  cookies
+} = require('../controllers/productControllers')
 
 router.get('/menu', getProducts)
+router.get('/detail/:product_id', productDetail)
+router.get ('/pasteles', cakes)
+router.get('/cupcakes', cupcakes)
+router.get('/pasticeria', cookies)
 
-router
+
+
 
 module.exports = router
