@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router() 
 const User = require ('../models/User')
-const Orders = require ('../models/Orders')
 const passport = require ('../config/passport')
 
 function isAuth(req, res, next) {
@@ -31,6 +30,8 @@ router.post('/profile', isAuth, (req, res)=>{
   .then(user => res.status(200).json({ user }))
   .catch(user => res.status(500).json({ msg: 'Something went wrong' }))
 })
+
+
 
 
 

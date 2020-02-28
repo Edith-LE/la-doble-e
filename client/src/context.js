@@ -15,8 +15,16 @@ class MyProvider extends Component{
             email:'',
             password:''
         },
+        
+        product:{
+            name:'',
+            description:'',
+            image:'',
+            typeProduct:'',
+            price:''            
+        },
         isLoggedIn: false,
-        loggedUser: null
+        loggedUser: null,
     }
 
 
