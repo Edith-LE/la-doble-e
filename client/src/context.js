@@ -103,15 +103,16 @@ class MyProvider extends Component{
     }
 
     getAllData = async () => {
-       return await PRODUCT_SERVICE.allProducts()
+        const allData = await PRODUCT_SERVICE.allProducts()
+       return allData
     }
 
     componentDidMount = async () =>{
-        const {products} = await PRODUCT_SERVICE.allProducts()
-        console.log(products)
+        const {productos} = await PRODUCT_SERVICE.allProducts()
+        //console.log(productos)
         this.setState(prevState => ({
             ...prevState, 
-            products: products
+            products: productos
 
         }))
     }
