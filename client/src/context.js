@@ -1,6 +1,7 @@
 import React, { Component, createContext } from 'react'
 import { withRouter } from 'react-router-dom'
 import AUTH_SERVICE from './services/auth'
+import PRODUCT_SERVICE from './services/products'
 
 export const MyContext = createContext()
 
@@ -23,6 +24,7 @@ class MyProvider extends Component{
             typeProduct:'',
             price:''            
         },
+        products: null,
         isLoggedIn: false,
         loggedUser: null,
     }
@@ -98,8 +100,22 @@ class MyProvider extends Component{
         this.setState({ isLoggedIn:false })
         await AUTH_SERVICE.logout()
         this.props.history.push("/")
-
     }
+
+    getAllData = async () => {
+       return await PRODUCT_SERVICE.allProducts()
+    }
+
+    componentDidMount = async () =>{
+        const products = await PRODUCT_SERVICE.allProducts()
+        this.setState(prevState => ({
+            ...prevState, 
+            products: products
+
+        }))
+    }
+
+
 
 
     render(){
@@ -109,7 +125,8 @@ class MyProvider extends Component{
             handleSignupSubmit,
             handleLoginInput,
             handleLoginSubmit,
-            logout         
+            logout,
+            getAllData         
         }= this
         return(
             <MyContext.Provider
@@ -119,7 +136,8 @@ class MyProvider extends Component{
                 handleSignupInput,
                 handleLoginInput,
                 handleLoginSubmit,
-                logout 
+                logout,
+                getAllData
             }}
             >
             {this.props.children}

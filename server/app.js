@@ -10,11 +10,15 @@ const path         = require('path');
 const passport     = require('./config/passport')
 const cors         = require('cors')
 const session      = require('express-session')
+const product      = require ('./models/Products')
+const data         = require ('./data')
 
 
 mongoose
   .connect('mongodb://localhost/server', {useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
+    // product.create(data)
+    console.log(data)
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
   .catch(err => {

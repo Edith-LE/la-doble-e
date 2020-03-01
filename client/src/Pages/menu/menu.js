@@ -2,15 +2,26 @@ import React from 'react'
 import { MyContext } from '../../context'
 
 
+
 function Menu() {
     return (
-        <MyContext.Provider>
-        <>
-          <h1>Menú</h1>  
-          <img src/>
-        </>
+        <MyContext.Consumer>
+            {context => (
+                <div>
+                <h1>Menú</h1>  
+                
+               
+            {context.state.products.map(product => 
+            <p>{product.name}</p>
+            )}
+                
+                
+                </div>
+            
 
-        </MyContext.Provider>
+            )}
+
+        </MyContext.Consumer>
     )
 }
 

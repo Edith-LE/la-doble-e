@@ -16,7 +16,8 @@ const AUTH_SERVICE = {
     },
     logout: async data=>{
         return await  MY_SERVICE.post('logout')
-    }
+    },
+
 }
 
 export default AUTH_SERVICE

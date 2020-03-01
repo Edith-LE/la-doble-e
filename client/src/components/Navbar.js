@@ -1,44 +1,73 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { MyContext } from '../context'
+import { Flex, Box } from '@chakra-ui/core'
+
+const styles = {
+  style: {
+    padding: '20px',
+    color: 'white',
+    fontSize: '20px'
+  },
+  activeStyle: {
+    color: '#cab28e'
+  },
+  box:{
+    bg:'#C5C4C6'
+  }
+
+}
 
 export default function Navbar (){
     return ( 
         <MyContext.Consumer>
             {context => (
+              <Flex
+              w="100vw"
+              h="20vh"
+              bg="#041531"
+              align="center"
+              justify="center"
+              >
+              
               <>
+
                 <nav>
                   {context.state.isLoggedIn ? (
                     <>
-                    <NavLink to="/" exact>
-                           Inicio
-                         </NavLink>
-                         <NavLink to="/profile" exact>
+                    <Box>
+                      <NavLink {...styles} to="/" exact>
+                            Inicio
+                      </NavLink>
+                    </Box>
+                    <Box>
+                         <NavLink {...styles} to="/profile" exact>
                            Perfil
                          </NavLink>
-                         <button onClick={context.logout}>
+                    </Box>
+                         <button onClick={context.logout} {...styles}>
                            Salir
                          </button>
                          </>
                   ) : (
                     <>
-                    <NavLink to="/" exact>
+                    <NavLink {...styles}  to="/" exact>
                        Inicio
                      </NavLink>
-                     <NavLink to="/menu" exact>
+                     <NavLink {...styles} to="/menu" exact>
                        Menu
                      </NavLink>
-                     <NavLink  to="/signup" exact>
+                     <NavLink {...styles} to="/signup" exact>
                        Registrate
                      </NavLink>
-                     <NavLink to="/login" exact>
+                     <NavLink {...styles} to="/login" exact>
                        Inicia Sesión
                      </NavLink>
                      </>
                   )}
                 </nav>
               </>
-             
+            </Flex>
             )}
           </MyContext.Consumer>
         )  
