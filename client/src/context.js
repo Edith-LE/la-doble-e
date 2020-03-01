@@ -24,7 +24,7 @@ class MyProvider extends Component{
             typeProduct:'',
             price:''            
         },
-        products: null,
+        products: [],
         isLoggedIn: false,
         loggedUser: null,
     }
@@ -107,7 +107,8 @@ class MyProvider extends Component{
     }
 
     componentDidMount = async () =>{
-        const products = await PRODUCT_SERVICE.allProducts()
+        const {products} = await PRODUCT_SERVICE.allProducts()
+        console.log(products)
         this.setState(prevState => ({
             ...prevState, 
             products: products

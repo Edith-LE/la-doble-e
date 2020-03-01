@@ -11,9 +11,7 @@ function Menu() {
                 <h1>Menú</h1>  
                 
                
-            {context.state.products.map(product => 
-            <p>{product.name}</p>
-            )}
+            {context.state.products.map(product => <p>{product.name}</p>)}
                 
                 
                 </div>

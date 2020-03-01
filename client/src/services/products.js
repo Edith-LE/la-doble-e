@@ -12,6 +12,7 @@ const PRODUCT_SERVICE={
     
     allProducts: async () =>{
         const {data} = await MY_SERVICE.get('/menu')
+        //console.log(data)
         return data
     }
 }
