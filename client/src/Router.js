@@ -7,6 +7,7 @@ import Profile from './Pages/profile/profile'
 import Navbar from './components/Navbar'
 import Home from './Pages/home/home'
 import Menu from './Pages/menu/menu'
+import AboutUs from './Pages/aboutUs/aboutUs'
 
 
 const Router = () => (
@@ -18,7 +19,8 @@ const Router = () => (
         <Route exact path="/login" component={Login}/>
         <Route exact path="/profile" component={Profile}/>
         <Route exact path="/" component={Home}/> 
-        <Route exact path="/menu" component={Menu}/>      
+        <Route exact path="/menu" component={Menu}/>
+        <Route exact path="/acerca" component={AboutUs}/>    
 
     </Switch>
             

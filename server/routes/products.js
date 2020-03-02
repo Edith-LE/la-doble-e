@@ -5,7 +5,8 @@ const {
   productDetail,
   cakes,
   cupcakes,
-  cookies
+  cookies,
+  createOrder
 } = require('../controllers/productControllers')
 
 router.get('/menu', getProducts)
@@ -13,6 +14,7 @@ router.get('/detail/:product_id', productDetail)
 router.get ('/pasteles', cakes)
 router.get('/cupcakes', cupcakes)
 router.get('/pasticeria', cookies)
+router.post('/orden', createOrder)
 
 
 

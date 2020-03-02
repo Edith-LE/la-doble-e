@@ -17,4 +17,4 @@ const orderSchema = new Schema(
     }
 )
 
-model.exports = model ('Orders', orderSchema)
+module.exports = model('Orders', orderSchema)

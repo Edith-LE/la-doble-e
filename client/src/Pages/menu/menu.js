@@ -12,7 +12,7 @@ function Menu() {
                 {context.state.products.map(product => 
                 <div>
                     <p>{product.name}</p>
-                    {/* <img key={product.id} src={product.image} alt={product.name} /> */}
+                    <img key={product.id} src={product.image} alt={product.name} /> 
                     <p>{product.description} </p>
 
                 </div>

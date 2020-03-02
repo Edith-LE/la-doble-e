@@ -63,6 +63,9 @@ export default function Navbar (){
                      <NavLink {...styles} to="/login" exact>
                        Inicia Sesión
                      </NavLink>
+                     <NavLink {...styles} to="/acerca" exact>
+                       Acerca de Nosostros
+                     </NavLink>
                      </>
                   )}
                 </nav>

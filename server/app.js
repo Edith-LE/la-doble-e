@@ -18,7 +18,7 @@ mongoose
   .connect('mongodb://localhost/server', {useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
     // product.create(data)
-    console.log(data)
+    // console.log(data)
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
   .catch(err => {
@@ -69,6 +69,7 @@ const products = require ('./routes/products')
 app.use('/', index);
 app.use('/', auth);
 app.use('/', products);
+
 
 
 module.exports = app;
