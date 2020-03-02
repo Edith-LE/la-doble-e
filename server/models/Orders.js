@@ -9,6 +9,10 @@ const orderSchema = new Schema(
           ref: 'Products' 
       }
     ],
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    },
     quantity:Number,    
     total: Number
   },

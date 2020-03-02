@@ -25,6 +25,13 @@ class MyProvider extends Component{
             price:''            
         },
         products: [],
+        cakes: [],
+        cookies: [],
+        cupcakes: [],
+        cakeVisible: false,
+        cupcakeVisible: false,
+        cookieVisible: false,
+        productVisible: true,
         isLoggedIn: false,
         loggedUser: null,
     }
@@ -102,19 +109,69 @@ class MyProvider extends Component{
         this.props.history.push("/")
     }
 
-    getAllData = async () => {
-        const allData = await PRODUCT_SERVICE.allProducts()
-       return allData
-    }
+    // getAllData = async () => {
+    //     const allData = await PRODUCT_SERVICE.allProducts()
+    //    return allData
+    // }
 
     componentDidMount = async () =>{
         const {productos} = await PRODUCT_SERVICE.allProducts()
-        //console.log(productos)
         this.setState(prevState => ({
             ...prevState, 
             products: productos
 
         }))
+        this.getCakes()
+        this.getCookie()
+        this.getCupcake()
+    }
+
+    getCakes = async () =>{
+        const {pasteles} = await PRODUCT_SERVICE.cakesProducts()
+        this.setState({cakes:pasteles})
+    }
+    getCookie = async ()=>{
+        const {data:{galleta}} = await PRODUCT_SERVICE.cookiesProducts()
+        this.setState({cookies: galleta})
+    }
+    getCupcake = async () => {
+        const {data:{panque}} = await PRODUCT_SERVICE.cupcakesProducts()
+        this.setState({cupcakes:panque})
+
+    }
+
+
+    displayCake = e => {
+        e.preventDefault ()
+        this.setState ({
+            cakeVisible: true,
+            cupcakeVisible: false,
+            cookieVisible:false,
+            productVisible: false
+        })
+        console.log(this.state);    
+    }
+
+    displayCupcake = e => {
+        e.preventDefault ()
+        this.setState ({
+            cakeVisible: false,
+            cupcakeVisible: true,
+            cookieVisible:false,
+            productVisible: false
+        })
+        console.log(this.state);    
+    }
+
+    displayCoockie = e => {
+        e.preventDefault ()
+        this.setState ({
+            cakeVisible: false,
+            cupcakeVisible: false,
+            cookieVisible:true,
+            productVisible: false
+        })
+        console.log(this.state);    
     }
 
 
@@ -127,8 +184,10 @@ class MyProvider extends Component{
             handleSignupSubmit,
             handleLoginInput,
             handleLoginSubmit,
-            logout,
-            getAllData         
+            logout, 
+            displayCake,
+            displayCupcake,
+            displayCoockie        
         }= this
         return(
             <MyContext.Provider
@@ -139,7 +198,11 @@ class MyProvider extends Component{
                 handleLoginInput,
                 handleLoginSubmit,
                 logout,
-                getAllData
+                displayCake,
+                displayCupcake,
+                displayCoockie
+
+               
             }}
             >
             {this.props.children}

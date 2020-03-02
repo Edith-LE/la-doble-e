@@ -36,6 +36,7 @@ exports.createOrder = async (req, res) => {
   const order = req.body
   const {_id} = req.user
   const newOrder = await Orders.create(order)
+  const ordenPopulated = await (await Orders.findById(newOrder._id)).populated(_id) 
 
 }
 
