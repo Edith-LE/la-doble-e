@@ -109,10 +109,7 @@ class MyProvider extends Component{
         this.props.history.push("/")
     }
 
-    // getAllData = async () => {
-    //     const allData = await PRODUCT_SERVICE.allProducts()
-    //    return allData
-    // }
+
 
     componentDidMount = async () =>{
         const {productos} = await PRODUCT_SERVICE.allProducts()
@@ -160,7 +157,7 @@ class MyProvider extends Component{
             cookieVisible:false,
             productVisible: false
         })
-        console.log(this.state);    
+         
     }
 
     displayCoockie = e => {
@@ -171,7 +168,17 @@ class MyProvider extends Component{
             cookieVisible:true,
             productVisible: false
         })
-        console.log(this.state);    
+         
+    }
+    displayProducts = e => {
+        e.preventDefault ()
+        this.setState ({
+            cakeVisible: false,
+            cupcakeVisible: false,
+            cookieVisible: false,
+            productVisible: true
+        })
+
     }
 
 
@@ -187,7 +194,8 @@ class MyProvider extends Component{
             logout, 
             displayCake,
             displayCupcake,
-            displayCoockie        
+            displayCoockie,
+            displayProducts        
         }= this
         return(
             <MyContext.Provider
@@ -200,7 +208,8 @@ class MyProvider extends Component{
                 logout,
                 displayCake,
                 displayCupcake,
-                displayCoockie
+                displayCoockie,
+                displayProducts
 
                
             }}
