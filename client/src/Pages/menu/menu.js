@@ -2,13 +2,16 @@ import React from 'react'
 import { MyContext } from '../../context'
 import { Box, NumberInput, Button, Image} from "@chakra-ui/core"
 import { GiCupcake } from 'react-icons/gi';
+import './style.css'
 
 
 function Menu() {
     return (
+        <div className="menu" >
+
         <MyContext.Consumer>
             {context => (
-            <div>
+                <>
                 <h1>Menú</h1> 
                 <button onClick={context.displayProducts}>
                     Todos
@@ -22,8 +25,9 @@ function Menu() {
                 <button onClick={context.displayCoockie}>
                     Pasticería
                 </button>
+                
 
-                <Box width="300px" borderWidth="1px" rounded="lg" overflow="hidden">
+                <Box display="flex" width="300px" borderWidth="1px" rounded="lg" overflow="hidden">
                 <div style={!context.state.cupcakeVisible ? {display:"none"}: {display:"block"}}>
                 {context.state.cupcakes.map(cupcake => 
                 <>  
@@ -157,7 +161,8 @@ function Menu() {
                     </Box>
                     </Box>
                     <NumberInput defaultValue={1} min={1} max={9}/> 
-                    <Button leftIcon={GiCupcake} variantColor="#EDDDD8" variant="solid">
+                    <Button leftIcon={GiCupcake} variantColor="#EDDDD8;" variant="solid">
+                    
                     ordenar
                      </Button>
 
@@ -166,8 +171,8 @@ function Menu() {
                  </div>
                 </Box>
 
-            </div>
-                
+            
+                </>
                
                 
                
@@ -176,6 +181,7 @@ function Menu() {
             )}
 
         </MyContext.Consumer>
+        </div>
     )
 }
 

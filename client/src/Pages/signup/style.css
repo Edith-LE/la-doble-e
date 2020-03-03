@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.signup{
+    width: 100vw;
+    height: 90vh;
+
+    background-image: url('https://res.cloudinary.com/da1qmmruk/image/upload/v1583251218/39_kfq8ru.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-origin: padding-box;
+
+}
+
+.form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 550px; 
+    padding-top: 70px;
+
+
+}

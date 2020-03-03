@@ -16,15 +16,18 @@ const styles = {
     bg:'#C5C4C6'
   }
 
+
 }
 
 export default function Navbar (){
     return ( 
         <MyContext.Consumer>
             {context => (
+              
               <Flex
               w="100vw"
               h="20vh"
+              p="30px"
               bg="#041531"
               align="center"
               justify="center"
@@ -32,7 +35,7 @@ export default function Navbar (){
               
               <>
 
-                <nav>
+                <nav style={{marginTop:"20px"}}>
                   {context.state.isLoggedIn ? (
                     <>
                     <Box>

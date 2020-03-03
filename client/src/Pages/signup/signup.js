@@ -8,13 +8,16 @@ import {
   Button
  } from '@chakra-ui/core'
  import { GiCupcake } from 'react-icons/gi';
+ import './style.css'
 
 
 
 function Signup() {
   return (
+    <div className="signup">
     <MyContext.Consumer>
       {context => (
+                <div className="form">
 
                 <Flex  bg="#EDDDD8" size="350px" align="center" justify="center">
 
@@ -71,9 +74,13 @@ function Signup() {
           </form>
 
           </Flex>
-        
-      )}
+                </div>
+
+
+
+)}
     </MyContext.Consumer>
+    </div>
   )
 }
 
