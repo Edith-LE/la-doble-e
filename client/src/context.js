@@ -25,6 +25,7 @@ class MyProvider extends Component{
             price:''            
         },
         products: [],
+        productId:"",
         cakes: [],
         cookies: [],
         cupcakes: [],
@@ -121,6 +122,7 @@ class MyProvider extends Component{
         this.getCakes()
         this.getCookie()
         this.getCupcake()
+        this.getProductDetail()
     }
 
     getCakes = async () =>{
@@ -134,7 +136,13 @@ class MyProvider extends Component{
     getCupcake = async () => {
         const {data:{panque}} = await PRODUCT_SERVICE.cupcakesProducts()
         this.setState({cupcakes:panque})
-
+    }
+    getProductDetail = async (e, cb) =>{
+        const { data } = await PRODUCT_SERVICE.productsDetail(e)
+        this.setState({ productId:data.product._id })
+        await this.setState({ productsDetail: data.product })
+        console.log(this.state.productsDetail)
+        cb()    
     }
 
 
@@ -145,8 +153,7 @@ class MyProvider extends Component{
             cupcakeVisible: false,
             cookieVisible:false,
             productVisible: false
-        })
-        console.log(this.state);    
+        })    
     }
 
     displayCupcake = e => {

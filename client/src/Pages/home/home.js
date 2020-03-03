@@ -8,9 +8,9 @@ class Home extends Component{
             <MyContext.Consumer>
                 {context => (
                     <>
-                    <Flex  size="800px" align="center" justify="center">
+                    <Flex  size="500px" align="center" justify="center">
 
-                    <Image src="https://res.cloudinary.com/da1qmmruk/image/upload/v1583131662/LaDobleE_o3q8a3.png" alt="Ladoblee" />
+                    <Image src="https://res.cloudinary.com/da1qmmruk/image/upload/v1583219623/la_doble_e/60d747c1-d218-4901-a885-0b40365e5ade_kvpkht.jpg" alt="Ladoblee" />
                     </Flex>
                     </>
                 )}

@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { MyContext } from '../../context'
 import { Heading, Flex, Image, Text, Button } from "@chakra-ui/core";
 
-class About extends Component{
-    render( ){
+function About ({history}) {
+    
         return (
             <MyContext.Consumer>
                 {context => (
@@ -36,7 +36,10 @@ class About extends Component{
                     Los pasteles son 100% caseros y horneados al momento.
 
                     <Flex paddingTop="40px" marginLeft="15vw" marginRight="10vw">
-                    <Button variantColor="#9D7566" variant="outline" >
+                    <Button 
+                    variantColor="#9D7566" 
+                    variant="outline"
+                    onClick={() => history.push('/menu')} >
                         ¡Conoce nuestros productos!
                     </Button>
                     </Flex>
@@ -54,6 +57,6 @@ class About extends Component{
             </MyContext.Consumer>
         )
     }
-}
+
 
 export default About

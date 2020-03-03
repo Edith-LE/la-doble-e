@@ -1,5 +1,6 @@
 import React from 'react'
 import { MyContext } from '../../context'
+import { FormControl, FormLabel } from '@chakra-ui/core'
 
 
 function Login() {
@@ -8,7 +9,8 @@ function Login() {
       {context => (
         
           <form onSubmit={context.handleLoginSubmit} title="Login">
-
+                <FormControl isRequired>
+                <FormLabel>Email</FormLabel>
                 <input
                   onChange={context.handleLoginInput}
                   placeholder="example@email.com"
@@ -16,14 +18,17 @@ function Login() {
                   type="email"
                   value={context.state.formLogin.email}
                 />
-                              
+                </FormControl>
+                <FormControl isRequired>
+                <FormLabel>Contraseña</FormLabel>
                 <input
                   onChange={context.handleLoginInput}
-                  placeholder="Password"
+                  placeholder="********"
                   name="password"
                   type="password"
                   value={context.state.formLogin.password}
                 />
+                </FormControl>           
                  <button> Entrar </button>
               
           </form>

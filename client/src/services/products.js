@@ -18,7 +18,6 @@ const PRODUCT_SERVICE={
     cakesProducts: async () => {
         const{data} = await MY_SERVICE.get('/pasteles')
         return data
-
     },
     cupcakesProducts: async ()=>{
         return await MY_SERVICE.get('/cupcakes')

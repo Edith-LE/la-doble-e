@@ -1,6 +1,7 @@
 import React from 'react'
 import { MyContext } from '../../context'
-import { Box } from "@chakra-ui/core"
+import { Box, NumberInput, Button, Image} from "@chakra-ui/core"
+import { GiCupcake } from 'react-icons/gi';
 
 
 function Menu() {
@@ -40,7 +41,7 @@ function Menu() {
                     {cupcake.name}
                     </Box>
 
-                    <img key={cupcake.id} src={cupcake.image} alt={cupcake.name} /> 
+                    <Image key={cupcake.id} src={cupcake.image} alt={cupcake.name} /> 
                     <p>{cupcake.description} </p>
                     <Box>
                      {cupcake.price}
@@ -50,6 +51,7 @@ function Menu() {
                     </span>
                     </Box>
                     </Box>
+                    <NumberInput defaultValue={1} min={1} max={9}/> 
 
                 </>  
                  )}
@@ -74,7 +76,7 @@ function Menu() {
                     {cake.name}
 
                     </Box>
-                    <img key={cake.id} src={cake.image} alt={cake.name} /> 
+                    <Image key={cake.id} src={cake.image} alt={cake.name}  /> 
                     <p>{cake.description} </p>
                     <Box>
                      {cake.price}
@@ -84,9 +86,11 @@ function Menu() {
                     </span>
                     </Box>
                     </Box>
+                    <NumberInput defaultValue={1} min={1} max={9}/> 
 
                 </>  
                  )}
+                 Email*
                 </div>
                 </Box>
 
@@ -107,7 +111,7 @@ function Menu() {
                     {cookie.name}
                     </Box>
                     
-                    <img key={cookie.id} src={cookie.image} alt={cookie.name} /> 
+                    <Image key={cookie.id} src={cookie.image} alt={cookie.name}  /> 
                     <p>{cookie.description} </p>
                     <Box>
                      {cookie.price}
@@ -117,6 +121,7 @@ function Menu() {
                     </span>
                     </Box>
                     </Box>
+                    <NumberInput defaultValue={1} min={1} max={9}/> 
                    
 
                 </>  
@@ -141,7 +146,7 @@ function Menu() {
                     >
                     {product.name}
                     </Box>
-                    <img key={product.id} src={product.image} alt={product.name} /> 
+                    <Image key={product.id} src={product.image} alt={product.name}  /> 
                     <p>{product.description} </p>
                     <Box>
                      {product.price}
@@ -151,6 +156,10 @@ function Menu() {
                     </span>
                     </Box>
                     </Box>
+                    <NumberInput defaultValue={1} min={1} max={9}/> 
+                    <Button leftIcon={GiCupcake} variantColor="#EDDDD8" variant="solid">
+                    ordenar
+                     </Button>
 
                     </>
                  )}
