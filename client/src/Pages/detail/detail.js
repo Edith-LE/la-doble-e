@@ -1,9 +1,12 @@
 import React from 'react'
 import context, { MyContext } from '../../context'
+import {  Image, Link, Button  } from "@chakra-ui/core"
+import {GiShoppingCart} from 'react-icons/gi'
 
-function  Detail() {
+function  Detail({history}) {
     return (
         <MyContext.Consumer>
+      
             {context=>{
                 const {product} = context.state
                 if(product)
@@ -12,14 +15,20 @@ function  Detail() {
                     <h1>
                         {context.state.product.name}  
                     </h1>
-                    <img src={context.state.product.image}/>
+                    
+                    <Image rounded="full" src={context.state.product.image} size="600px" />
                     
                     
                     <input type="number" name="quantity" value={context.state.productToCart.quantity} onChange={context.handleQuantity} />
                     <button onClick={context.addToCart}>
                         Agregar
                     </button>
-                    
+                    {/* <Link onClick={context.addToCart} to={()=> history.push('/compra')}>
+                    <Button leftIcon={GiShoppingCart} variantColor="#041531;" variant="solid">
+                    Agregar
+                    </Button>
+                    </Link> */}
+
                     </>
                 )
                 else return <p>

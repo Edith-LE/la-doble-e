@@ -52,6 +52,7 @@ class MyProvider extends Component{
         }
         ))
         console.log('despues del push');
+        this.props.history.push('/menu')
         
         // const cart = this.state.cart
         // const { name } = this.state.product
