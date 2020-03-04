@@ -3,7 +3,7 @@ import { MyContext } from '../../context'
 import { Box, NumberInput, Button, Image} from "@chakra-ui/core"
 import { GiCupcake } from 'react-icons/gi';
 import './style.css'
-
+import {Link} from 'react-router-dom'
 
 function Menu() {
     return (
@@ -55,7 +55,12 @@ function Menu() {
                     </span>
                     </Box>
                     </Box>
-                    <NumberInput defaultValue={1} min={1} max={9}/> 
+                    <Link onClick={()=>context.getProduct(cupcake._id)} to='/detalle'>
+                    <Button leftIcon={GiCupcake} variantColor="#041531;" variant="solid">
+                    Comprar
+                    </Button>
+                    </Link>
+
 
                 </>  
                  )}
@@ -90,11 +95,16 @@ function Menu() {
                     </span>
                     </Box>
                     </Box>
-                    <NumberInput defaultValue={1} min={1} max={9}/> 
+                    <Link onClick={()=>context.getProduct(cake._id)} to='/detalle'>
+                    <Button leftIcon={GiCupcake} variantColor="#041531;" variant="solid">
+                    Comprar
+                    </Button>
+                    </Link>
+
 
                 </>  
                  )}
-                 Email*
+
                 </div>
                 </Box>
 
@@ -125,8 +135,12 @@ function Menu() {
                     </span>
                     </Box>
                     </Box>
-                    <NumberInput defaultValue={1} min={1} max={9}/> 
+                    <Link onClick={()=>context.getProduct(cookie._id)} to='/detalle'>
+                    <Button leftIcon={GiCupcake} variantColor="#041531;" variant="solid">
+                    Comprar
+                    </Button>
                    
+                    </Link>
 
                 </>  
                  )}
@@ -137,7 +151,7 @@ function Menu() {
 
                  <div style={!context.state.productVisible ? {display:"none"}: {display:"block"}}>
 
-                {context.state.products.map(product => 
+                {context.state.products.map((product) => 
                     <>
                     <Box
                     mt="2"
@@ -160,29 +174,18 @@ function Menu() {
                     </span>
                     </Box>
                     </Box>
-                    <NumberInput
-                    name={product.name} 
-                    value={context.quantity} 
-                    onChange={context.handleQuantity} 
-                    defaultValue={1} 
-                    min={1} 
-                    max={9}/> 
-                    <Button leftIcon={GiCupcake} variantColor="#EDDDD8;" variant="solid">
-                    
-                    Agregar
+
+                    <Link onClick={()=>context.getProduct(product._id)} to='/detalle'>   
+                    <Button  leftIcon={GiCupcake} variantColor="#041531;" variant="solid">
+                    Comprar
                      </Button>
+                    </Link>
 
                     </>
                  )}
                  </div>
                 </Box>
-
-            
-                </>
-               
-                
-               
-            
+                </> 
 
             )}
 

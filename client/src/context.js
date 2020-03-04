@@ -16,19 +16,10 @@ class MyProvider extends Component{
             email:'',
             password:''
         },
-        
-        product:{
-            name:'',
-            description:'',
-            image:'',
-            typeProduct:'',
-            price:''            
-        },
-        quantity:{
-            
-        },
+        cart: [],
+        product: null,
+        quantity: 1,
         products: [],
-        productId:"",
         cakes: [],
         cookies: [],
         cupcakes: [],
@@ -40,10 +31,18 @@ class MyProvider extends Component{
         loggedUser: null,
     }
 
+    addToCart = e => {
+        const cart = this.state.cart
+        for(let i = 0; i < this.state.quantity; i ++){
+            cart.push(this.state.product)
+        }
+        this.setState({ cart: cart})
+        console.log(this.state);  
+    }
+
     handleQuantity = e =>{
         const {name, value} = e.target
-        console.log(name, value);
-        
+        this.setState({quantity: value})
     }
 
 
@@ -56,7 +55,7 @@ class MyProvider extends Component{
                 ...prevState.formSignup,
                 [name]: value
             }
-
+            
         }))
     }
     
@@ -157,6 +156,13 @@ class MyProvider extends Component{
     //     const { data:{user:{orders}}} = await PRODUCT_SERVICE.
         
     // }
+    getProduct = async (id) =>{
+        const {data:{product}} = await PRODUCT_SERVICE.productsDetail(id)
+        this.setState({product:product})
+        console.log(this.state);
+        
+        
+    }
 
 
 
@@ -215,12 +221,15 @@ class MyProvider extends Component{
             handleSignupSubmit,
             handleLoginInput,
             handleLoginSubmit,
+            handleQuantity,
             logout, 
             displayCake,
             displayCupcake,
             displayCoockie,
             displayProducts,
-            handleQuantity        
+            getProduct,
+            addToCart
+               
         }= this
         return(
             <MyContext.Provider
@@ -230,12 +239,15 @@ class MyProvider extends Component{
                 handleSignupInput,
                 handleLoginInput,
                 handleLoginSubmit,
+                handleQuantity,
                 logout,
                 displayCake,
                 displayCupcake,
                 displayCoockie,
                 displayProducts,
-                handleQuantity
+                getProduct,
+                addToCart
+               
                
             }}
             >

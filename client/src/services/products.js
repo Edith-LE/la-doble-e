@@ -25,8 +25,8 @@ const PRODUCT_SERVICE={
     cookiesProducts: async () =>{
         return await MY_SERVICE.get('/pasticeria')
     },
-    productsDetail: async () => {
-        return await MY_SERVICE.get('/detail/:product_id')
+    productsDetail: async (id) => {
+        return await MY_SERVICE.get(`/detail/${id}`)
     },
     createOrder: async data =>{
         return await MY_SERVICE.post('/orden', data)

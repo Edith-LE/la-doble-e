@@ -35,7 +35,7 @@ export default function Navbar (){
               
               <>
 
-                <nav style={{marginTop:"20px"}}>
+                <nav style={{display:"flex"}}>
                   {context.state.isLoggedIn ? (
                     <>
                     <Box>
@@ -44,8 +44,18 @@ export default function Navbar (){
                       </NavLink>
                     </Box>
                     <Box>
+                      <NavLink {...styles} to="/menu" exact>
+                            Menu
+                      </NavLink>
+                    </Box>
+                    <Box>
                          <NavLink {...styles} to="/profile" exact>
                            Perfil
+                         </NavLink>
+                    </Box>
+                    <Box>
+                         <NavLink {...styles} to="/compra" exact>
+                           Carrito
                          </NavLink>
                     </Box>
                          <button onClick={context.logout} {...styles}>

@@ -15,7 +15,7 @@ const data         = require ('./data')
 
 
 mongoose
-  .connect('mongodb://localhost/server', {useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.DB, {useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
     // product.create(data)
     // console.log(data)
