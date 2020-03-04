@@ -1,7 +1,6 @@
 import React from 'react'
 import { MyContext } from '../../context'
 import { 
-  FormControl, 
   FormLabel, 
   Input, 
   Flex,
@@ -24,7 +23,7 @@ function Signup() {
                 
                 <form onSubmit={context.handleSignupSubmit} title="Signup">
             
-                <FormControl isRequired>
+               
                 <FormLabel color="#041531">Nombre</FormLabel>
                 
                 <Input
@@ -35,10 +34,10 @@ function Signup() {
                   value={context.state.formSignup.name}
                   onChange={context.handleSignupInput}
                 />
-                </FormControl>
+              
           
             
-                <FormControl isRequired>
+              
                 <FormLabel color="#041531">Email</FormLabel>
 
                 <Input
@@ -49,11 +48,11 @@ function Signup() {
                   type="email"
                   value={context.state.formSignup.email}
                 />
-                </FormControl>
+              
            
          
            
-                <FormControl isRequired>
+               
                 <FormLabel color="#041531">Contraseña</FormLabel>
                 <Input
                   variant="filled"
@@ -63,8 +62,8 @@ function Signup() {
                   type="password"
                   value={context.state.formSignup.password}
                 />
-                </FormControl>
-                <Button variantColor="#041531" variant="ghost">
+              
+                <Button onClick={context.handleSignupSubmit} variantColor="#041531" variant="ghost">
                 Crear cuenta
                 </Button>
 
