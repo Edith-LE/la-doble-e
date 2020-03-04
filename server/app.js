@@ -17,8 +17,8 @@ const data         = require ('./data')
 mongoose
   .connect(process.env.DB, {useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
-    // product.create(data)
-    // console.log(data)
+    
+  
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
   .catch(err => {
