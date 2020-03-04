@@ -19,6 +19,15 @@ class MyProvider extends Component{
         cart: [],
         product: null,
         quantity: 1,
+        productToCart:{
+            id: null,
+            quantity: null,
+            name: '',
+            description: null,
+            image: null,
+            typeProduct: null,
+            price: ''
+        },
         products: [],
         cakes: [],
         cookies: [],
@@ -32,17 +41,83 @@ class MyProvider extends Component{
     }
 
     addToCart = e => {
-        const cart = this.state.cart
-        for(let i = 0; i < this.state.quantity; i ++){
-            cart.push(this.state.product)
+        e.preventDefault()
+        console.log('si entro');
+        
+        this.setState(prev => ({
+            cart: 
+                [...prev.cart, this.state.productToCart]
+
+            
         }
-        this.setState({ cart: cart})
-        console.log(this.state);  
+        ))
+        console.log('despues del push');
+        
+        // const cart = this.state.cart
+        // const { name } = this.state.product
+        // console.log(name);
+        // this.setState ( {
+        //     productToCart:{
+        //         name: 'Vic'
+        //     }
+
+        // } )
+        // this.setState (prevState => ({
+        //     ...prevState,
+        //         productToCart:{
+        //         id: this.state.product._id,
+        //         quantity: this.state.quantity,
+        //         name: name,
+        //         description: this.state.product.description,
+        //         image: this.state.product.image,
+        //         typeProduct: this.state.product.typeProduct,
+        //         price: this.state.product.price
+        //     }
+        // })
+
+        //  )
+        
+
+
+         // esto estaba comentado
+        // this.setState ({
+
+
+        //     productToCart:{
+        //         id: this.state.product._id,
+        //         quantity: this.state.quantity,
+        //         name: name,
+        //         description: this.state.product.description,
+        //         image: this.state.product.image,
+        //         typeProduct: this.state.product.typeProduct,
+        //         price: this.state.product.price
+        //     }
+            
+        // })
+
+
+        // esto estaba descomentado
+        // console.log(this.state);
+        
+        // for(let i = 0; i < this.state.quantity; i ++){
+            
+        //     cart.push(this.state.product)
+        // }
+        // this.setState({ cart: cart})
+        // console.log(this.state);  
     }
 
     handleQuantity = e =>{
         const {name, value} = e.target
-        this.setState({quantity: value})
+        console.log('set state', value);
+        
+        this.setState(prev => ({
+            ...prev,
+            productToCart: {
+                ...prev.productToCart,
+                quantity: value
+            }
+        }))
     }
 
 
@@ -130,7 +205,7 @@ class MyProvider extends Component{
         this.getCakes()
         this.getCookie()
         this.getCupcake()
-        this.getProductDetail()
+        // this.getProductDetail()
     }
 
     getCakes = async () =>{
@@ -145,19 +220,27 @@ class MyProvider extends Component{
         const {data:{panque}} = await PRODUCT_SERVICE.cupcakesProducts()
         this.setState({cupcakes:panque})
     }
-    getProductDetail = async (e, cb) =>{
-        const { data } = await PRODUCT_SERVICE.productsDetail(e)
-        this.setState({ productId:data.product._id })
-        await this.setState({ productsDetail: data.product })
-        console.log(this.state.productsDetail)
-        cb()    
-    }
+    // getProductDetail = async (e, cb) =>{
+    //     const { data } = await PRODUCT_SERVICE.productsDetail(e)
+    //     this.setState({ productId:data.product._id })
+    //     await this.setState({ productsDetail: data.product })
+    //     console.log(this.state.productsDetail)
+    //     cb()    
+    // }
     // postOrder = async () => {
     //     const { data:{user:{orders}}} = await PRODUCT_SERVICE.
         
     // }
     getProduct = async (id) =>{
         const {data:{product}} = await PRODUCT_SERVICE.productsDetail(id)
+            this.setState({productToCart: {
+                id,
+                name: product.name,
+                quantity: 0,
+                image: product.image
+            }})
+        console.log('product', product);
+        
         this.setState({product:product})
         console.log(this.state);
         

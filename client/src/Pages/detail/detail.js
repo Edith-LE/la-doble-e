@@ -15,7 +15,7 @@ function  Detail() {
                     <img src={context.state.product.image}/>
                     
                     
-                    <input type="number" name="quantity" value={context.state.quantity} onChange={context.handleQuantity} />
+                    <input type="number" name="quantity" value={context.state.productToCart.quantity} onChange={context.handleQuantity} />
                     <button onClick={context.addToCart}>
                         Agregar
                     </button>
