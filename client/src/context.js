@@ -24,6 +24,9 @@ class MyProvider extends Component{
             typeProduct:'',
             price:''            
         },
+        quantity:{
+            
+        },
         products: [],
         productId:"",
         cakes: [],
@@ -35,6 +38,12 @@ class MyProvider extends Component{
         productVisible: true,
         isLoggedIn: false,
         loggedUser: null,
+    }
+
+    handleQuantity = e =>{
+        const {name, value} = e.target
+        console.log(name, value);
+        
     }
 
 
@@ -144,6 +153,14 @@ class MyProvider extends Component{
         console.log(this.state.productsDetail)
         cb()    
     }
+    // postOrder = async () => {
+    //     const { data:{user:{orders}}} = await PRODUCT_SERVICE.
+        
+    // }
+
+
+
+
 
 
     displayCake = e => {
@@ -202,7 +219,8 @@ class MyProvider extends Component{
             displayCake,
             displayCupcake,
             displayCoockie,
-            displayProducts        
+            displayProducts,
+            handleQuantity        
         }= this
         return(
             <MyContext.Provider
@@ -216,8 +234,8 @@ class MyProvider extends Component{
                 displayCake,
                 displayCupcake,
                 displayCoockie,
-                displayProducts
-
+                displayProducts,
+                handleQuantity
                
             }}
             >

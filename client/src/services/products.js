@@ -28,8 +28,8 @@ const PRODUCT_SERVICE={
     productsDetail: async () => {
         return await MY_SERVICE.get('/detail/:product_id')
     },
-    createOrder: async () =>{
-        return await MY_SERVICE.post('/orden')
+    createOrder: async data =>{
+        return await MY_SERVICE.post('/orden', data)
     }   
 
 }

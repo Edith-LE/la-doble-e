@@ -47,11 +47,18 @@ exports.cookies = async(req, res) => {
  exports.createOrder = async (req, res, next) => {
    const order = req.body
    const { _id } = req.user
-   const newOrder = await Orders.create(order).populate('products')
+   const newOrder = await Orders.create(order)
    const user = await User.findByIdAndUpdate(_id, 
     {$push: {orders: newOrder._id}},
-    {new: true}).populate('orders')
+    {new: true}).populate({
+      path: 'orders',
+      populate:{
+        path: 'products',
+        model: 'Products'
+      }
+    })
     return res.status(201).json({user, newOrder})
+
  }
 
 

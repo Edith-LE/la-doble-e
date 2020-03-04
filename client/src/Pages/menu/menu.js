@@ -160,7 +160,13 @@ function Menu() {
                     </span>
                     </Box>
                     </Box>
-                    <NumberInput defaultValue={1} min={1} max={9}/> 
+                    <NumberInput
+                    name={product.name} 
+                    value={context.quantity} 
+                    onChange={context.handleQuantity} 
+                    defaultValue={1} 
+                    min={1} 
+                    max={9}/> 
                     <Button leftIcon={GiCupcake} variantColor="#EDDDD8;" variant="solid">
                     
                     Agregar
