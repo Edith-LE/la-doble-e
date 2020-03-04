@@ -32,13 +32,28 @@ exports.cookies = async(req, res) => {
   res.status(200).json({galleta})
 }
 
-exports.createOrder = async (req, res) => {
-  const order = req.body
-  const {_id} = req.user
-  const newOrder = await Orders.create(order)
-  const ordenPopulated = await (await Orders.findById(newOrder._id)).populated(_id) 
+// exports.createOrder = async (req, res) => {
+//   const order = req.body.productCart
+//   const  _id  = req.user
+//   const newOrder = await Orders.create(order)
+//   const user = await User.findById(req.user._id)
+//   console.log(req.body)
+//   user.orders.push(newOrder._id)
+//   user.save()
+//   res.status(201).json({newOrder})
+// }
 
-}
+
+ exports.createOrder = async (req, res, next) => {
+   const order = req.body
+   const { _id } = req.user
+   const newOrder = await Orders.create(order).populate('products')
+   const user = await User.findByIdAndUpdate(_id, 
+    {$push: {orders: newOrder._id}},
+    {new: true}).populate('orders')
+    return res.status(201).json({user, newOrder})
+ }
+
 
 // exports.createOrder =  async(req, res) => {
 //   const order = req.body

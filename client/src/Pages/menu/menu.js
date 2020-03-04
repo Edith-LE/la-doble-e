@@ -163,7 +163,7 @@ function Menu() {
                     <NumberInput defaultValue={1} min={1} max={9}/> 
                     <Button leftIcon={GiCupcake} variantColor="#EDDDD8;" variant="solid">
                     
-                    ordenar
+                    Agregar
                      </Button>
 
                     </>
