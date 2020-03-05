@@ -3,12 +3,16 @@
     padding: 0;
 }
 
-.menu{
+body{
     width: 100vw;
-    height: 90vh;
-    background-image: url('');
-    
+    height: 100vh;
+    background-image: url('https://res.cloudinary.com/evilvic/image/upload/v1583259278/la%20doble%20e/101-min_dd3v84.jpg');
+    background-repeat: repeat;
+    background-size: cover;
 }
+
+
+    
 
 
 

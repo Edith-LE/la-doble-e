@@ -8,3 +8,19 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.thumbs, .animated, .carousel-status{
+    display: none;
+}
+
+.logo{
+    width: 400px;
+    height: 400px;
+}
+
+header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+}

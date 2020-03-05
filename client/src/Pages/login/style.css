@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-.signup{
+.login{
     width: 100vw;
     height: 90vh;
 
@@ -22,4 +22,4 @@
     padding-top: 70px;
     border-radius: 10px;
 
-}
+} 

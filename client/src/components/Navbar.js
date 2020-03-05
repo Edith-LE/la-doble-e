@@ -5,7 +5,7 @@ import { Flex, Box } from '@chakra-ui/core'
 
 const styles = {
   style: {
-    padding: '20px',
+    padding: '10px',
     color: 'white',
     fontSize: '20px'
   },
@@ -26,8 +26,8 @@ export default function Navbar (){
               
               <Flex
               w="100vw"
-              h="20vh"
-              p="30px"
+              h="10vh"
+              p="20px"
               bg="#041531"
               align="center"
               justify="center"

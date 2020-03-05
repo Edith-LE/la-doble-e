@@ -4,10 +4,13 @@ import {
   FormLabel, 
   Input, 
   Flex,
-  Button
+  Button,
+  FormControl,
+  Heading,
  } from '@chakra-ui/core'
  import { GiCupcake } from 'react-icons/gi';
  import './style.css'
+ 
 
 
 
@@ -22,8 +25,17 @@ function Signup() {
 
                 
                 <form onSubmit={context.handleSignupSubmit} title="Signup">
+                
             
-               
+                <FormControl isRequired>
+
+                <Flex align="center" justify="center">
+
+                <Heading paddingBottom="20px">
+                  Regístrate
+                </Heading>
+                </Flex>
+
                 <FormLabel color="#041531">Nombre</FormLabel>
                 
                 <Input
@@ -34,10 +46,12 @@ function Signup() {
                   value={context.state.formSignup.name}
                   onChange={context.handleSignupInput}
                 />
+                </FormControl>
               
           
             
-              
+                <FormControl isRequired>
+
                 <FormLabel color="#041531">Email</FormLabel>
 
                 <Input
@@ -48,11 +62,13 @@ function Signup() {
                   type="email"
                   value={context.state.formSignup.email}
                 />
+                </FormControl>
               
            
          
            
-               
+                <FormControl isRequired>
+
                 <FormLabel color="#041531">Contraseña</FormLabel>
                 <Input
                   variant="filled"
@@ -62,18 +78,19 @@ function Signup() {
                   type="password"
                   value={context.state.formSignup.password}
                 />
+                </FormControl>
               
-                <Button onClick={context.handleSignupSubmit} variantColor="#041531" variant="ghost">
+                <Button onClick={context.handleSignupSubmit} variantColor="#041531" paddingBottom="20px">
                 Crear cuenta
                 </Button>
 
                   
              
             
-          </form>
+              </form>
 
-          </Flex>
-                </div>
+            </Flex>
+        </div>
 
 
 

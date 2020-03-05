@@ -181,7 +181,7 @@ class MyProvider extends Component{
               loggedUser: data.user,
               isLoggedIn: true
             }))
-            this.props.history.push('/profile')
+            this.props.history.push('/menu')
           })
           .catch(() => {
             alert('Something went wrong')

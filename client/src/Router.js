@@ -17,11 +17,11 @@ const Router = () => (
     <Navbar/>
 
     <Switch>
+        <Route exact path="/" component={Home}/> 
         <Route exact path="/detalle" component={Detail} />
         <Route exact path="/signup" component={Signup}/>
         <Route exact path="/login" component={Login}/>
         <Route exact path="/profile" component={Profile}/>
-        <Route exact path="/" component={Home}/> 
         <Route exact path="/menu" component={Menu}/>
         <Route exact path="/acerca" component={AboutUs}/> 
         <Route exact path="/compra" component={Cart}/>   
