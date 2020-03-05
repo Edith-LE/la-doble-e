@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 
 }
 
@@ -32,4 +33,26 @@ th{
 td{
     text-align: center;
     font-size: 1.3em;
+}
+
+tfoot{
+    background-color: #041531;
+    color: ivory;
+
+
+}
+
+tfoot td{
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.buttonTable{
+    background-color: #041531;
+    color: ivory;
+    width: 200px;
+    height: 60px;
+    margin-top: 50px;
+    border-radius: 5px;
+
 }

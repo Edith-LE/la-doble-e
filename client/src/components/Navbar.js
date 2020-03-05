@@ -68,11 +68,7 @@ export default function Navbar (){
                     <NavLink {...styles}  to="/" exact>
                        Inicio
                      </NavLink>
-                    <Box>
-                         <NavLink {...styles} to="/compra" exact>
-                           Carrito
-                         </NavLink>
-                    </Box>
+  
                      <NavLink {...styles} to="/acerca" exact>
                        Acerca de Nosostros
                      </NavLink>

@@ -1,6 +1,6 @@
 import React, {useEffect, useContext} from 'react'
 import  {MyContext} from '../../context'
-import { Flex } from '@chakra-ui/core'
+import { Button } from '@chakra-ui/core'
 import './style.css'
 
 
@@ -23,7 +23,6 @@ function Cart() {
             {context => (
                 <>
                 <div className="table">
-
                 <table>
                     <thead>
                         <tr>
@@ -52,12 +51,23 @@ function Cart() {
                         <td colSpan="3" >
                             Total
                         </td>
-                        
+                        <td>
                         {context.state.totalPrice}
+
+                        </td>
+                        
                     </tr>
                     </tfoot>
 
                 </table>
+
+                <button className="buttonTable">
+
+                    Pagar
+
+                </button>
+
+
                 </div>
                     
                 </>
