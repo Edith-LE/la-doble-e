@@ -1,6 +1,6 @@
 import React from 'react'
 import { MyContext } from '../../context'
-import { Box, NumberInput, Button, Image} from "@chakra-ui/core"
+import { Box, NumberInput, Button, Image, Flex} from "@chakra-ui/core"
 import { GiCupcake } from 'react-icons/gi';
 import './style.css'
 import {Link} from 'react-router-dom'
@@ -12,7 +12,8 @@ function Menu() {
         <MyContext.Consumer>
             {context => (
                 <>
-                <h1>Menú</h1> 
+                <Flex align="center">
+
                 <button onClick={context.displayProducts}>
                     Todos
                 </button> 
@@ -25,6 +26,7 @@ function Menu() {
                 <button onClick={context.displayCoockie}>
                     Pasticería
                 </button>
+                </Flex>
                 
 
                 <Box display="flex" width="300px" borderWidth="1px" rounded="lg" overflow="hidden">

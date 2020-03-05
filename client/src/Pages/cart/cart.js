@@ -1,13 +1,29 @@
-import React from 'react'
-import context, {MyContext} from '../../context'
+import React, {useEffect, useContext} from 'react'
+import  {MyContext} from '../../context'
+import { Flex } from '@chakra-ui/core'
+import './style.css'
 
 
 
 function Cart() {
+
+    const context = useContext (MyContext)
+
+    useEffect (() => {
+        context.totalPrice()
+    },
+    [context])
+
+
+
+
     return (
         <MyContext.Consumer>
+
             {context => (
                 <>
+                <div className="table">
+
                 <table>
                     <thead>
                         <tr>
@@ -23,15 +39,26 @@ function Cart() {
                         <tr>
                             <td> <img src={product.image} alt={product.name} style= {{width:"100px", height:"100px"}} /> </td>
                             <td>{product.name}</td> 
-                            <td> {product.price} </td>
                             <td>{product.quantity}</td>
+                            <td> {`$ ${product.price}`} </td>
 
 
                         </tr>
                     )}
                     </tbody>
+                    <tfoot>
+
+                    <tr>
+                        <td colSpan="3" >
+                            Total
+                        </td>
+                        
+                        {context.state.totalPrice}
+                    </tr>
+                    </tfoot>
 
                 </table>
+                </div>
                     
                 </>
             )}

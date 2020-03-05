@@ -14,7 +14,12 @@ function  Detail({history}) {
                 if(product)
                 return(
                     <>
-                    <h1>
+                    <h1 style={{
+                        fontFamily: 'Pacifico', 
+                        fontSize:"80px", 
+                        color:"#041531",
+                        textAlign:"center"
+                        }} >
                         {context.state.product.name}  
                     </h1>
 

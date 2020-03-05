@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { MyContext } from '../context'
-import { Flex, Box } from '@chakra-ui/core'
+import { Flex, Box, Menu, MenuButton, MenuList, MenuItem, Button, Image } from '@chakra-ui/core'
 
 const styles = {
   style: {
@@ -9,6 +9,7 @@ const styles = {
     color: 'white',
     fontSize: '20px'
   },
+  //#041531
   activeStyle: {
     color: '#cab28e'
   },
@@ -67,21 +68,59 @@ export default function Navbar (){
                     <NavLink {...styles}  to="/" exact>
                        Inicio
                      </NavLink>
-                     <NavLink {...styles} to="/menu" exact>
-                       Menu
-                     </NavLink>
-                     <NavLink {...styles} to="/signup" exact>
-                       Registrate
-                     </NavLink>
-                     <NavLink {...styles} to="/login" exact>
-                       Inicia Sesión
-                     </NavLink>
+                    <Box>
+                         <NavLink {...styles} to="/compra" exact>
+                           Carrito
+                         </NavLink>
+                    </Box>
                      <NavLink {...styles} to="/acerca" exact>
                        Acerca de Nosostros
                      </NavLink>
+                     <NavLink {...styles} to="/menu" exact>
+                       Menu
+                     </NavLink>
+
+               
                      </>
                   )}
                 </nav>
+
+                <Flex align="flex-end">
+
+                <Menu>
+                    <MenuButton as={Button} rightIcon="chevron-down" marginLeft="400px" >
+                      ¡Ordena Ahora!
+                    </MenuButton>
+                    <MenuList>
+                    <MenuItem minH="40px">
+                      <Image
+                        size="2rem"
+                        rounded="full"
+                        src="https://res.cloudinary.com/da1qmmruk/image/upload/v1583390467/la_doble_e_cake_atpi6t.png"
+                        alt="pastel"
+                        mr="12px"
+                      />
+                    <NavLink  to="/signup" style={{color:"#041531"}} exact>
+                       Registrate
+                     </NavLink>
+                    </MenuItem>
+                    <MenuItem minH="40px">
+                      <Image
+                        size="2rem"
+                        rounded="full"
+                        src="https://res.cloudinary.com/da1qmmruk/image/upload/v1583390467/la_doble_e_cake_atpi6t.png"
+                        alt="pastel"
+                        mr="12px"
+                      />
+                      <NavLink style={{color:"#041531"}} to="/login" exact>
+                       Inicia Sesión
+                     </NavLink>
+                    </MenuItem>
+                  </MenuList>
+                </Menu>
+                </Flex>
+
+
               </>
             </Flex>
             )}

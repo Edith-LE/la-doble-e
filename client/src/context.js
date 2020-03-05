@@ -38,7 +38,17 @@ class MyProvider extends Component{
         productVisible: true,
         isLoggedIn: false,
         loggedUser: null,
+        totalPrice: 0
     }
+
+    totalPrice = () =>{
+        const price = []
+        this.state.cart.forEach(product => price.push(product.price))
+        const total = price.reduce((acc, curr) => acc + curr)
+        console.log(total);
+        this.setState({totalPrice: total})
+    }
+    
 
     addToCart = e => {
         e.preventDefault()
@@ -116,6 +126,7 @@ class MyProvider extends Component{
             ...prev,
             productToCart: {
                 ...prev.productToCart,
+                price: Number(this.state.product.price.match(/[0-9]/g).join(''))*value,
                 quantity: value
             }
         }))
@@ -312,7 +323,8 @@ class MyProvider extends Component{
             displayCoockie,
             displayProducts,
             getProduct,
-            addToCart
+            addToCart,
+            totalPrice
                
         }= this
         return(
@@ -330,7 +342,8 @@ class MyProvider extends Component{
                 displayCoockie,
                 displayProducts,
                 getProduct,
-                addToCart
+                addToCart,
+                totalPrice
                
                
             }}
